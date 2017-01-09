@@ -2,3 +2,18 @@
 .recommenders/
 RemoteSystemsTempFiles/
 
+proy_semana1/.classpath
+proy_semana1/.project
+proy_semana1/.settings/.jsdtscope
+proy_semana1/.settings/org.eclipse.jdt.core.prefs
+proy_semana1/.settings/org.eclipse.wst.common.component
+proy_semana1/.settings/org.eclipse.wst.common.project.facet.core.xml
+proy_semana1/.settings/org.eclipse.wst.jsdt.ui.superType.container
+proy_semana1/.settings/org.eclipse.wst.jsdt.ui.superType.name
+proy_semana1/build/classes/servlets/AnnotationHttpServlet.class
+proy_semana1/build/classes/servlets/ExtendServlet.class
+proy_semana1/build/classes/servlets/HttpSimpleServlet.class
+proy_semana1/build/classes/servlets/ParameterHttpServlet.class
+proy_semana1/build/classes/servlets/ParameterHttpServletFull.class
+proy_semana1/build/classes/servlets/ResponseServletImage.class
+proy_semana1/build/classes/servlets/ResponseServletPDF.class
