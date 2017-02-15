@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+	  <h:head>
+	  	<title>Combos dinámicos con PrimeFaces</title>
+	  </h:head>
+	  
+	  <h:body>
+		  <h:form>
+			  <p:selectOneMenu id="cboPaises" value="#{ejemploBean.codPais}"  filter="true" filterMatchMode="contains">
+			  	<f:selectItem itemLabel="--Seleccione Pais--" itemValue="#{null}" noSelectionOption="true"/>
+			  	<!--<f:selectItem itemLabel="Peru" itemValue="1"/>-->
+			  	<f:selectItems value="#{ejemploBean.listaPaises}" var="pais" itemLabel="#{pais.nombre}" itemValue="#{pais.codigo}"/>
+			  	<p:ajax event="change" listener="#{ejemploBean.listarRegiones()}" update="cboRegiones"></p:ajax>
+			  </p:selectOneMenu>
+			  
+			  <p:selectOneMenu id="cboRegiones" value="#{ejemploBean.codRegion}" filter="true" filterMatchMode="contains">
+			  	<f:selectItem itemLabel="--Selecciones Region--" itemValue="#{null}" noSelectionOption="true"/>
+			  	<f:selectItems value="#{ejemploBean.listaRegiones}" var="region" itemLabel="#{region.nombre}" itemValue="#{region.codigo}"/>
+			  	<p:ajax event="change" listener="#{ejemploBean.listarProvincias()}" update="cboProvincias"></p:ajax>
+			  </p:selectOneMenu>
+			  
+			   <p:selectOneMenu id="cboProvincias" value="" filter="true" filterMatchMode="contains">
+			  	<f:selectItem itemLabel="--Selecciones Provincia--" itemValue="#{null}" noSelectionOption="true"/>
+			  	<f:selectItems value="#{ejemploBean.listaProvincias}" var="provincia" itemLabel="#{provincia.nombre}" itemValue="#{provincia.codigo}"/>
+			  </p:selectOneMenu>
+			  
+		  </h:form>
+	  </h:body>
+	
+</html>

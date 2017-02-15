@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Scope en PrimeFaces</title>
+</h:head>
+
+<h:body>
+	<h:form id="frmPrincipal">
+		<p:inputText id="txtCaja" value="#{ejemploBean.nombre}">
+			<p:ajax event="keyup" update="etiqueta1, etiqueta2, :formulario:etiqueta3, :formulario:etiqueta4"></p:ajax>
+		</p:inputText>
+		
+		<p:outputLabel id="etiqueta1" value="#{ejemploBean.nombre}"></p:outputLabel>
+		<p:outputLabel id="etiqueta2" value="#{ejemploBean.nombre}"></p:outputLabel>
+	</h:form>
+
+	<h:form id="formulario">
+		<p:outputLabel id="etiqueta3" value="#{ejemploBean.nombre}"></p:outputLabel>
+		<p:outputLabel id="etiqueta4" value="#{ejemploBean.nombre}"></p:outputLabel>
+	</h:form>
+</h:body>
+
+</html>

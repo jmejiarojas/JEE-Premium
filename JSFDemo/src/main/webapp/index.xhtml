@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+	  <h:head>
+	  	<title>JSF 2.2 MitoCode Premium</title>
+	  </h:head>
+	  
+	  <h:body>
+		  <h:form>
+			  <h:inputText id="txtNombre" value="#{ejemploBean.nombre}"/>
+			  <h:commandButton value="Saludar">
+			  	<f:ajax execute="txtNombre" render="txtSaludo" />
+			  </h:commandButton>
+			  
+			  <h:inputText id="txtSaludo" value="Hola #{ejemploBean.nombre}" />
+			  <br></br><br></br>
+			  
+			  <h:selectOneMenu id="cboPaises" value="#{ejemploBean.codPais}">
+			  	<f:selectItem itemLabel="--Seleccione Pais--" itemValue="#{null}" noSelectionOption="true"/>
+			  	<!--<f:selectItem itemLabel="Peru" itemValue="1"/>-->
+			  	<f:selectItems value="#{ejemploBean.listaPaises}" var="pais" itemLabel="#{pais.nombre}" itemValue="#{pais.codigo}"/>
+			  	<f:ajax event="change" listener="#{ejemploBean.listarRegiones()}" execute="cboPaises" render="cboRegiones"></f:ajax>
+			  </h:selectOneMenu>
+			  
+			  <h:selectOneMenu id="cboRegiones" value="#{ejemploBean.codRegion}">
+			  	<f:selectItem itemLabel="--Selecciones Region--" itemValue="#{null}" noSelectionOption="true"/>
+			  	<f:selectItems value="#{ejemploBean.listaRegiones}" var="region" itemLabel="#{region.nombre}" itemValue="#{region.codigo}"/>
+			  	<f:ajax event="change" listener="#{ejemploBean.listarProvincias()}" execute="cboRegiones" render="cboProvincias"></f:ajax>
+			  </h:selectOneMenu>
+			  
+			   <h:selectOneMenu id="cboProvincias" value="">
+			  	<f:selectItem itemLabel="--Selecciones Provincia--" itemValue="#{null}" noSelectionOption="true"/>
+			  	<f:selectItems value="#{ejemploBean.listaProvincias}" var="provincia" itemLabel="#{provincia.nombre}" itemValue="#{provincia.codigo}"/>
+			  </h:selectOneMenu>
+			  
+		  </h:form>
+	  </h:body>
+	
+</html>
