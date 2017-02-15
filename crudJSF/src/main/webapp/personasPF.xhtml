@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Mantenimiento de Personas con PrimeFaces 6</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<p:dataTable value="#{personaBean.lista}" var="persona">
+			<p:column headerText="ID">
+				<h:outputText value="#{persona.id}" />
+			</p:column>
+			
+			<p:column headerText="NOMBRE">
+				<h:outputText value="#{persona.nombres}" />
+			</p:column>
+			
+			<p:column headerText="APELLIDOS">
+				<h:outputText value="#{persona.apellidos}" />
+			</p:column>
+			
+			<p:column>
+				<p:commandLink  action="personaPF" actionListener="#{personaBean.listarPorId(persona)}"  value="Editar" />
+				<!-- action="index?faces-redirect=true" -->
+			</p:column>
+			
+			<p:column>
+				<h:commandLink  actionListener="#{personaBean.eliminar(persona)}"  value="Remover" />
+				<!-- action="index?faces-redirect=true" -->
+			</p:column>
+			
+		</p:dataTable>
+		
+		<p:commandButton action="personaPF" actionListener="#{personaBean.limpiarControles()}" value="Agregar" />
+	</h:form>
+</h:body>
+	
+</html>
